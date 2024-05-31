@@ -1,0 +1,14 @@
+[user]
+	name = jvdende
+	email = jvdende@users.noreply.github.com
+[includeIf "gitdir:~/workspace/work/"]
+    path = ~/workspace/work/.gitconfig
+[core]
+	excludesfile = ~/.gitignore_global
+[init]
+	templatedir = ~/.git_template
+	defaultBranch = main
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
