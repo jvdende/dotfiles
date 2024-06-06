@@ -29,5 +29,8 @@ return {
         },
       }
     end,
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-context'
   }
 }
