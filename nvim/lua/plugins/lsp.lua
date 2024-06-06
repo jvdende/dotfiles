@@ -41,7 +41,11 @@ return {
             lspconfig.lua_ls.setup {
               capabilities = capabilities,
               settings = {
-                Lua = {}
+                Lua = {
+                  diagnostics = {
+                    globals = { 'vim' }
+                  }
+                }
               }
             }
           end
@@ -69,13 +73,12 @@ return {
         mapping = cmp.mapping.preset.insert({
           ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
           ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ['<C-space>'] = cmp.mapping.complete(),
-          -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          -- ['<C-Space>'] = cmp.mapping.complete(),
-          -- ['<C-e>'] = cmp.mapping.abort(),
-          -- ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
