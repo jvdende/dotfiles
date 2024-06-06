@@ -18,7 +18,6 @@ plugins=(
     rails
     sudo
     tmux
-    vscode
     z
 )
 
