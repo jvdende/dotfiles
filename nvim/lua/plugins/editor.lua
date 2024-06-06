@@ -1,14 +1,5 @@
 return {
   {
-    "numToStr/Comment.nvim",
-    opts = {
-      toggler = {
-        line = '<leader>cc',
-        block = '<leader>bc',
-      }
-    }
-  },
-  {
     "ThePrimeagen/harpoon",
     lazy = false,
     branch = "harpoon2",
