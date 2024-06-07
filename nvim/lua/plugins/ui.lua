@@ -29,6 +29,6 @@ return {
     keys = {
       { "<leader>pv", "<cmd>Oil<cr>", desc = "Open oil" },
     },
-    opts = true
+    config = true
   },
 }
