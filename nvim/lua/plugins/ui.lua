@@ -1,7 +1,6 @@
 return {
   { 'nvim-tree/nvim-web-devicons' },
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', config = true },
-  { 'lewis6991/gitsigns.nvim', config = true },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
