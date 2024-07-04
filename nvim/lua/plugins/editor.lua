@@ -1,4 +1,5 @@
 return {
+  { "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
   {
     "ThePrimeagen/harpoon",
     lazy = false,
