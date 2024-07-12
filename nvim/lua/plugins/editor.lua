@@ -1,5 +1,27 @@
 return {
   { "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
+  { 'lewis6991/gitsigns.nvim', config = true },
+  {
+    'tpope/vim-fugitive',
+    lazy = false,
+    keys = {
+      { "<leader>gs", vim.cmd.Git, desc = "Git status" },
+    }
+  },
+  {
+    'stevearc/oil.nvim',
+    lazy = false,
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    keys = {
+      { "<leader>pv", "<cmd>Oil<cr>", desc = "Open oil" },
+    },
+    opts = {
+      default_file_explorer = true,
+      view_options = {
+        show_hidden = true,
+      }
+    }
+  },
   {
     "ThePrimeagen/harpoon",
     lazy = false,

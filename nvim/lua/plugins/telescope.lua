@@ -4,6 +4,7 @@ return {
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
     },
     keys = {
       { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
@@ -17,8 +18,9 @@ return {
           sort_mru = true,
         },
         find_files = {
-          hidden = true
-        }
+          hidden = true,
+          -- no_ignore = true,
+        },
       },
       defaults = {
         file_ignore_patterns = { ".git/", "node_modules" },
@@ -29,23 +31,16 @@ return {
           },
         }
       },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {}
+        }
+      }
     },
     config = function(_, opts)
       require("telescope").setup(opts)
       require("telescope").load_extension("fzf")
+      require("telescope").load_extension("ui-select")
     end,
   },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {}
-          }
-        }
-      })
-      require("telescope").load_extension("ui-select")
-    end
-  }
 }

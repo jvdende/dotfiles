@@ -27,7 +27,6 @@ return {
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "eslint",
           "lua_ls",
           "rubocop",
           "solargraph",
