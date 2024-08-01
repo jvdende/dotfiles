@@ -52,7 +52,6 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # mise
-.mise.toml
 .mise.local.toml
 .tool-versions
 
