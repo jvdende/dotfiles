@@ -16,6 +16,7 @@ plugins=(
     mise
     python
     rails
+    rust
     sudo
     tmux
     z
