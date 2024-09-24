@@ -22,15 +22,17 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 -- Wsl Clipboard
-vim.g.clipboard = {
+if vim.fn.has('win32') == 1 then
+  vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {
-        ['+'] = 'clip.exe',
-        ['*'] = 'clip.exe',
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
     },
     paste = {
-        ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-        ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
     },
     cache_enabled = 0,
-}
+  }
+end
