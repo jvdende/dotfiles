@@ -53,7 +53,7 @@ pip-selfcheck.json
 
 # mise
 .mise.local.toml
-.tool-versions
+.mise.*.local.toml
 
 # Procfile / Overmind
 Procfile.dev
