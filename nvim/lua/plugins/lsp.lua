@@ -16,6 +16,7 @@ return {
     config = function()
       local cmp = require("cmp")
       local cmp_lsp = require("cmp_nvim_lsp")
+      local lspconfig = require("lspconfig")
       local capabilities = vim.tbl_deep_extend(
         "force",
         {},
@@ -33,11 +34,10 @@ return {
         },
         handlers = {
           function(server_name) -- default handler (optional)
-            require("lspconfig")[server_name].setup { capabilities = capabilities }
+            lspconfig[server_name].setup { capabilities = capabilities }
           end,
 
           ["lua_ls"] = function()
-            local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup {
               capabilities = capabilities,
               settings = {
@@ -51,7 +51,6 @@ return {
           end,
 
           ["rust_analyzer"] = function()
-            local lspconfig = require("lspconfig")
             lspconfig.rust_analyzer.setup {
               on_attach = function(_, bufnr)
                 vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
@@ -59,17 +58,17 @@ return {
               settings = {
                 imports = {
                   granularity = {
-                      group = "module",
+                    group = "module",
                   },
                   prefix = "self",
                 },
                 cargo = {
-                    buildScripts = {
-                        enable = true,
-                    },
+                  buildScripts = {
+                    enable = true,
+                  },
                 },
                 procMacro = {
-                    enable = true
+                  enable = true
                 },
               }
             }
