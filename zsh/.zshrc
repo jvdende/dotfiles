@@ -19,6 +19,7 @@ plugins=(
     rust
     sudo
     tmux
+    yarn
     z
 )
 
