@@ -50,6 +50,28 @@ return {
             }
           end,
 
+          ["ts_ls"] = function()
+            lspconfig.ts_ls.setup {
+              on_attach = function(_, bufnr)
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+              end,
+              settings = {
+                typescript = {
+                  inlayHints = {
+                    includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all'
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = false,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                  },
+                },
+              },
+            }
+          end,
+
           ["rust_analyzer"] = function()
             lspconfig.rust_analyzer.setup {
               on_attach = function(_, bufnr)
