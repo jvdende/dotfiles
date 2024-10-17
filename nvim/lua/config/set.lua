@@ -22,7 +22,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 -- Wsl Clipboard
-if vim.fn.has('32') then
+if vim.fn.has('win32') then
   vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {
