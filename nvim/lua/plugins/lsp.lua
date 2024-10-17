@@ -64,7 +64,7 @@ return {
                     includeInlayVariableTypeHints = false,
                     includeInlayVariableTypeHintsWhenTypeMatchesName = false,
                     includeInlayPropertyDeclarationTypeHints = false,
-                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = false,
                     includeInlayEnumMemberValueHints = true,
                   },
                 },
