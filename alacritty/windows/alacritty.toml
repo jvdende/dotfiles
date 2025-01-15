@@ -1,0 +1,18 @@
+[terminal.shell]
+program = "wsl"
+args = ["-d", "Ubuntu"]
+
+[window]
+opacity = 0.9
+
+[window.dimensions]
+columns = 210
+lines = 55
+
+[font.normal]
+family = "IosevkaFixed Nerd Font"
+style = "Extended"
+
+[colors.primary]
+background = '#0c0c0c'
+foreground = '#cccccc'
