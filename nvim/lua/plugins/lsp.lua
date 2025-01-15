@@ -29,8 +29,6 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "rubocop",
-          "solargraph",
         },
         handlers = {
           function(server_name) -- default handler (optional)
