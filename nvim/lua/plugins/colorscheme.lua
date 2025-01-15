@@ -1,4 +1,22 @@
+function SetColorscheme(color)
+  color = color or "onedark"
+  vim.cmd.colorscheme(color)
+end
+
 return {
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      disable_background = true,
+      styles = {
+        italic = false,
+        transparency = true,
+      },
+    },
+  },
   {
     'navarasu/onedark.nvim',
     lazy = false,
@@ -12,7 +30,7 @@ return {
     },
     config = function(_, opts)
       require('onedark').setup(opts)
-      require('onedark').load()
+      SetColorscheme('onedark')
     end,
   },
 }
