@@ -58,3 +58,6 @@ pip-selfcheck.json
 # Procfile / Overmind
 Procfile.local
 .overmind.env
+
+# EditorConfig
+.editorconfig
