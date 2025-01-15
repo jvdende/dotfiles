@@ -56,5 +56,5 @@ pip-selfcheck.json
 .mise.*.local.toml
 
 # Procfile / Overmind
-Procfile.dev
+Procfile.local
 .overmind.env
