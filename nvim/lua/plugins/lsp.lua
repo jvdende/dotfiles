@@ -12,6 +12,9 @@ return {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "j-hui/fidget.nvim",
+      -- fancy cmp-nvim icons icons
+      "onsails/lspkind.nvim",
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
       local cmp = require("cmp")
@@ -124,6 +127,22 @@ return {
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
         }),
+        view = {
+          entries = "custom",
+        },
+        formatting = {
+          format = function(entry, vim_item)
+            if vim.tbl_contains({ 'path' }, entry.source.name) then
+              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+              if icon then
+                vim_item.kind = icon
+                vim_item.kind_hl_group = hl_group
+                return vim_item
+              end
+            end
+            return require('lspkind').cmp_format({ with_text = false })(entry, vim_item)
+          end
+        },
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'luasnip' }, -- For luasnip users.
