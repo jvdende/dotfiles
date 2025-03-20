@@ -1,5 +1,4 @@
 return {
-  { "kylechui/nvim-surround", version = "*", event = "VeryLazy", config = true },
   { 'lewis6991/gitsigns.nvim', config = true },
   {
     'tpope/vim-fugitive',
@@ -55,7 +54,23 @@ return {
     }
   },
   {
-    'echasnovski/mini.surround', version = false,
+    "kylechui/nvim-surround",
+    enabled = true,
+    event = "VeryLazy",
+    opts = {
+      keymaps = {
+        normal = "gsa",
+        normal_cur = "gsaa",
+        normal_line = "gsA",
+        normal_cur_line = "gsAA",
+        delete = "gsd",
+        change = "gsc",
+        change_line = "gsC",
+      }
+    }
+  },
+  {
+    'echasnovski/mini.surround', enabled = false, version = false,
     opts = {
       mappings = {
         add = "gsa", -- Add surrounding in Normal and Visual modes
