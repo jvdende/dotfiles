@@ -15,6 +15,7 @@ return {
       -- fancy cmp-nvim icons icons
       "onsails/lspkind.nvim",
       "nvim-tree/nvim-web-devicons",
+      "b0o/schemastore.nvim", -- SchemaStore
     },
     config = function()
       local cmp = require("cmp")
@@ -94,6 +95,17 @@ return {
                   enable = true
                 },
               }
+            }
+          end,
+
+          ["jsonls"] = function()
+            lspconfig.jsonls.setup {
+              settings = {
+                json = {
+                  schemas = require('schemastore').json.schemas(),
+                  validate = { enable = true },
+                },
+              },
             }
           end,
         },
