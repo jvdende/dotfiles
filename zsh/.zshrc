@@ -14,6 +14,7 @@ plugins=(
     git
     git-auto-fetch
     mise
+    npm
     python
     rails
     rust
@@ -26,7 +27,7 @@ plugins=(
 if   [[ "$OSTYPE" == "linux-gnu"* ]]; then
   plugins+=(ubuntu)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  plugins+=(macos brew)
+  plugins+=(macos)
 fi
 
 source $ZSH/oh-my-zsh.sh
