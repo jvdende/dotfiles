@@ -1,5 +1,5 @@
 # git
-alias gpsupmr="gpsup -o merge_request.create"
+alias gpsupmr="git push --set-upstream origin $(git_current_branch) -o merge_request.create"
 alias glr="git pull --rebase"
 
 # overmind
