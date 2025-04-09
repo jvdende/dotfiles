@@ -36,6 +36,9 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL=$(which nvim)
 export EDITOR=$VISUAL
 
+# aider
+source "$HOME/.local/bin/env"
+
 # Fzf
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --no-ignore-vcs --glob "!{.git,node_modules}"'
