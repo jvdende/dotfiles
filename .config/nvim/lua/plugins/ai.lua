@@ -33,7 +33,7 @@ return {
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
       "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       "ibhagwan/fzf-lua", -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       -- "zbirenbaum/copilot.lua", -- for providers='copilot'
@@ -64,8 +64,7 @@ return {
       },
     },
     opts = {
-      -- add any opts here
-      -- for example
+      hints = { enabled = false },
       provider = "openrouter",
       vendors = {
         openrouter = {
@@ -77,5 +76,10 @@ return {
         }
       },
     },
+    config = function(_, opts)
+      require('avante').setup(opts)
+      -- views can only be fully collapsed with the global statusline
+      vim.opt.laststatus = 3
+    end,
   },
 }
