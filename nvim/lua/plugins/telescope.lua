@@ -10,6 +10,7 @@ return {
       { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
       { "<C-f>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
+      { "z=", "<cmd>Telescope spell_suggest<cr>", desc = "Telescope spell suggest" },
     },
     opts = {
       pickers = {
