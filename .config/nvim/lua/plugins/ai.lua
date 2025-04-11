@@ -1,6 +1,7 @@
 return {
   {
     'github/copilot.vim',
+    enabled = false,
     config = function ()
       vim.keymap.set('i', '<M-y>', 'copilot#Accept("")', { expr = true, replace_keycodes = false })
       vim.g.copilot_no_tab_map = true
@@ -14,6 +15,7 @@ return {
   },
   {
     "joshuavial/aider.nvim",
+    enabled = false,
     opts = {
       auto_manage_context = true, -- automatically manage buffer context
       default_bindings = true,    -- use default <leader>A keybindings
@@ -64,8 +66,12 @@ return {
       },
     },
     opts = {
-      hints = { enabled = false },
+      -- hints = { enabled = false },
       provider = "openrouter",
+      auto_suggestions_provider = "openrouter",
+      behaviour = {
+        auto_suggestions = true,
+      },
       vendors = {
         openrouter = {
           __inherited_from = "openai",
