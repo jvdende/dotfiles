@@ -1,3 +1,5 @@
+local builtin = require('telescope.builtin')
+
 return {
   {
     "nvim-telescope/telescope.nvim", branch = "0.1.x",
@@ -7,10 +9,14 @@ return {
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
     keys = {
-      { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
-      { "<C-f>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
-      { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
-      { "z=", "<cmd>Telescope spell_suggest<cr>", desc = "Telescope spell suggest" },
+      { "<C-p>", builtin.find_files, desc = "Telescope find files" },
+      { "<leader>fg", builtin.git_files, desc = "Telescope git files" },
+      { "<C-f>", builtin.live_grep, desc = "Telescope live grep" },
+      { "<leader>fb", builtin.buffers, desc = "Telescope buffers" },
+      { "<leader>pws", function ()
+        local word = vim.fn.expand("<cword>")
+        builtin.grep_string({ search = word })
+      end },
     },
     opts = {
       pickers = {
@@ -24,7 +30,7 @@ return {
         },
       },
       defaults = {
-        file_ignore_patterns = { ".git/", "node_modules" },
+        file_ignore_patterns = { ".git", "node_modules" },
         mappings = {
           i = {
             ["<C-k>"] = "move_selection_previous",

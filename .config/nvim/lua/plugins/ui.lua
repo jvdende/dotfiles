@@ -1,5 +1,4 @@
 return {
-  { 'nvim-tree/nvim-web-devicons' },
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', config = true },
   {
     'nvim-lualine/lualine.nvim',
