@@ -4,28 +4,15 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/nvim-cmp",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
+      "saghen/blink.cmp",
       "j-hui/fidget.nvim",
       "onsails/lspkind.nvim", -- fancy cmp-nvim icons
       "nvim-tree/nvim-web-devicons", -- fancy cmp-nvim icons
       "b0o/schemastore.nvim", -- SchemaStore
     },
     config = function()
-      local cmp = require("cmp")
-      local cmp_lsp = require("cmp_nvim_lsp")
       local lspconfig = require("lspconfig")
-      local capabilities = vim.tbl_deep_extend(
-        "force",
-        {},
-        vim.lsp.protocol.make_client_capabilities(),
-        cmp_lsp.default_capabilities()
-      )
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       require("fidget").setup()
       require("mason").setup()
@@ -119,42 +106,6 @@ return {
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
         end
-      })
-
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-          ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ['<C-space>'] = cmp.mapping.complete(),
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-e>'] = cmp.mapping.abort(),
-        }),
-        formatting = {
-          format = function(entry, vim_item)
-            if vim.tbl_contains({ 'path' }, entry.source.name) then
-              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
-              if icon then
-                vim_item.kind = icon
-                vim_item.kind_hl_group = hl_group
-                return vim_item
-              end
-            end
-            return require('lspkind').cmp_format({ with_text = false })(entry, vim_item)
-          end
-        },
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- For luasnip users.
-        }, {
-          { name = 'buffer' },
-        })
       })
     end
   },
