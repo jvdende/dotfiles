@@ -30,9 +30,7 @@ return {
       require("fidget").setup()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-        },
+        ensure_installed = { "lua_ls", },
         handlers = {
           function(server_name) -- default handler (optional)
             lspconfig[server_name].setup { capabilities = capabilities }
@@ -53,6 +51,7 @@ return {
 
           ["ts_ls"] = function()
             lspconfig.ts_ls.setup {
+              capabilities = capabilities,
               on_attach = function(_, bufnr)
                 vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
               end,
@@ -75,6 +74,7 @@ return {
 
           ["rust_analyzer"] = function()
             lspconfig.rust_analyzer.setup {
+              capabilities = capabilities,
               on_attach = function(_, bufnr)
                 vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
               end,
@@ -99,6 +99,7 @@ return {
 
           ["jsonls"] = function()
             lspconfig.jsonls.setup {
+              capabilities = capabilities,
               settings = {
                 json = {
                   schemas = require('schemastore').json.schemas(),
