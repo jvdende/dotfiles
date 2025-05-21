@@ -24,7 +24,7 @@ plugins=(
     z
 )
 
-if   [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   plugins+=(ubuntu)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   plugins+=(macos)
@@ -35,9 +35,14 @@ source $ZSH/oh-my-zsh.sh
 # Default editor
 export VISUAL=$(which nvim)
 export EDITOR=$VISUAL
+if type nvim &> /dev/null; then
+  alias vim=nvim
+fi
 
-# aider
-source "$HOME/.local/bin/env"
+# Local bin
+if [[ "OSTYPE" == "linux-gnu"* ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
 
 # Fzf
 if type rg &> /dev/null; then
