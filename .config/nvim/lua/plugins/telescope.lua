@@ -13,7 +13,7 @@ return {
       { "<leader>fg", builtin.git_files, desc = "Telescope git files" },
       { "<C-f>", builtin.live_grep, desc = "Telescope live grep" },
       { "<leader>fb", builtin.buffers, desc = "Telescope buffers" },
-      { "<leader>pws", function ()
+      { "<leader>fw", function ()
         local word = vim.fn.expand("<cword>")
         builtin.grep_string({ search = word })
       end },

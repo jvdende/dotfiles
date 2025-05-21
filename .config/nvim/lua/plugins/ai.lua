@@ -1,29 +1,15 @@
 return {
   {
     'github/copilot.vim',
-    enabled = false,
+    enabled = true,
     config = function ()
-      vim.keymap.set('i', '<M-y>', 'copilot#Accept("")', { expr = true, replace_keycodes = false })
+      vim.keymap.set('i', '<M-y>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
       vim.g.copilot_no_tab_map = true
-      vim.g.copilot_filetypes = {
-        ['*'] = false,
-        -- ['env'] = false,
-        -- ['yml'] = false,
-        -- ['toml'] = false,
-      }
     end
   },
   {
-    "joshuavial/aider.nvim",
-    enabled = false,
-    opts = {
-      auto_manage_context = true, -- automatically manage buffer context
-      default_bindings = true,    -- use default <leader>A keybindings
-      debug = false,              -- enable debug logging
-    },
-  },
-  {
     "yetone/avante.nvim",
+    enabled = false,
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -76,7 +62,7 @@ return {
         openrouter = {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
-          model = "anthropic/claude-3.7-sonnet",
+          model = "anthropic/claude-3.5-sonnet",
           api_key_name = "OPENROUTER_API_KEY",
           max_tokens = 8192,
         }
