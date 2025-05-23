@@ -39,11 +39,6 @@ if type nvim &> /dev/null; then
   alias vim=nvim
 fi
 
-# Local bin
-if [[ "OSTYPE" == "linux-gnu"* ]]; then
-  export PATH="$HOME/.local/bin:$PATH"
-fi
-
 # Fzf
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --no-ignore-vcs --glob "!{.git,node_modules}"'
