@@ -4,6 +4,7 @@ save_to_clipboard = true
 [window]
 opacity = 0.8
 blur = true
+option_as_alt = "OnlyLeft"
 
 [font]
 size = 14
