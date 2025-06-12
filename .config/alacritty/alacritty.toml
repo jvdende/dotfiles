@@ -1,0 +1,16 @@
+[selection]
+save_to_clipboard = true
+
+[window]
+opacity = 0.8
+blur = true
+
+[font]
+size = 14
+normal = { family = "IosevkaFixed Nerd Font", style = "Extended" }
+# bold = { style = "Extended Oblique" }
+# italic = { style = "Extended Italic" }
+
+[colors.primary]
+background = '#0c0c0c'
+foreground = '#cccccc'
