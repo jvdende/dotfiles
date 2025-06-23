@@ -110,6 +110,10 @@
     # example               # example user-defined segment (see prompt_example function below)
   )
 
+  if [[ -n "$SSH_TTY" ]]; then
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=(battery)
+  fi
+
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-v3
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
